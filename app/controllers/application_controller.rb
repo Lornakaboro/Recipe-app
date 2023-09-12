@@ -1,3 +1,9 @@
 class ApplicationController < ActionController::Base
-    before_action :authenticate_user!, except: [:new, :create]
-end
+    before_action :authenticate_user!
+  
+    private
+    def after_sign_in_path_for(resource)
+      super(resource)
+    end
+  end
+  
