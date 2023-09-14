@@ -25,11 +25,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_082904) do
   end
 
   create_table "foods", force: :cascade do |t|
-    t.string "food"
-    t.string "measurement_unit"
-    t.decimal "unit_price", precision: 10, scale: 2
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "measurement_unit"
+    t.float "unit_price"
   end
 
   create_table "recipes", force: :cascade do |t|
