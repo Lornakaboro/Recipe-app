@@ -1,0 +1,31 @@
+nav {
+    background-color: #0a0a0a;
+    height: 50px; /* Set the background color of the navigation bar */
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+  }
+  
+  ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    padding: 0;
+  }
+  
+  .list-item {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-right: 2rem;
+
+  }
+  
+  .list-item a {
+    color: #fff; /* Set the color of the links */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .list-item a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
