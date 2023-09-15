@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :recipe_foods
   get 'recipe_foods/new'
   get 'recipe_foods/create'
   get 'recipe_foods/edit'
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   resources :foods
   resources :recipes
   resources :public_recipes
+  resources :food_recipes
   devise_for :users
   resources :users, only: [:index, :show]
   root to: "users#index"

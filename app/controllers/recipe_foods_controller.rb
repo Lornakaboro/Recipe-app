@@ -56,4 +56,10 @@ class RecipeFoodsController < ApplicationController
   def recipe_food_params
     params.require(:recipe_food).permit(:food_id, :quantity)
   end
+  
+  def index
+    @recipe_foods = RecipeFood.all
+  end
+  
+
 end

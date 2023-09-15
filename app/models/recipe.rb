@@ -6,7 +6,7 @@ class Recipe < ApplicationRecord
   before_save :set_public
 
   belongs_to :user, foreign_key: :user_id
-  has_many :recipe_foods, dependent: :destroy
+  has_many :food_recipes, dependent: :destroy
 
   # Validations
   validates :name, presence: true

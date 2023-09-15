@@ -1,19 +1,22 @@
 # frozen_string_literal: true
 
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_recipe, only: %i[show edit update destroy]
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = current_user.recipes
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @foods = current_user.foods.joins(:food_recipes).where(food_recipes: { recipe_id: @recipe.id })
+  end
 
   # GET /recipes/new
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
   end
 
   # GET /recipes/1/edit
@@ -22,7 +25,7 @@ class RecipesController < ApplicationController
   # POST /recipes or /recipes.json
   def create
     @recipe = current_user.recipes.build(recipe_params)
-  
+
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
@@ -33,7 +36,6 @@ class RecipesController < ApplicationController
       end
     end
   end
-  
 
   # PATCH/PUT /recipes/1 or /recipes/1.json
   def update
@@ -58,16 +60,20 @@ class RecipesController < ApplicationController
     end
   end
 
+  # PATCH /recipes/1/toggle or /recipes/1/toggle.json
+  def toggle
+    @recipe.toggle!(:public)
+    redirect_to recipe_path(@recipe), notice: 'Recipe was successfully updated.'
+  end
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_recipe
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :description, :public)
   end
-   
 end
