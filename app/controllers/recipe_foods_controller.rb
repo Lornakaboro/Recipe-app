@@ -19,7 +19,20 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @recipe_food = RecipeFood.find(params[:id])
+  end
+
+  def update
+    @recipe_food = RecipeFood.find(params[:id])
+    if @recipe_food.update(recipe_food_params)
+      flash[:notice] = 'Food quantity updated.'
+      redirect_to recipe_path(@recipe_food.recipe)
+    else
+      flash[:alert] = 'Food quantity not updated.'
+      render :edit
+    end
+  end
 
   def destroy
     recipe_food = RecipeFood.find(params[:id])
