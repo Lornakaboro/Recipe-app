@@ -1,0 +1,44 @@
+nav {
+  background-color: #0a0a0a;
+  height: 50px; /* Set the background color of the navigation bar */
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+ul {
+  list-style-type: none; /* Remove bullet points from the list */
+  padding: 0;
+}
+
+.list-item {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 2rem;
+}
+
+.list-item a {
+  color: #fff; /* Set the color of the links */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.list-item a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+.image {
+  width: 100%; /* Set the desired width */
+  height: 100%; /* This maintains the aspect ratio */
+  border: 2px solid #ccc; /* Add a border around the image */
+}
+
+/* app/assets/stylesheets/styles.css */
+
+footer {
+  background-color: #0c0b0b;
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+}
