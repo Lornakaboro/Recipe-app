@@ -10,7 +10,6 @@ class FoodRecipesController < ApplicationController
     @food_count = @foods.length
     @food_cost = @foods.sum(:price)
   end
-  
 
   # GET /food_recipes/1 or /food_recipes/1.json
   def show; end

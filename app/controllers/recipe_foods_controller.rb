@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class RecipeFoodsController < ApplicationController
   def new
     @recipe_food = RecipeFood.new
@@ -56,10 +54,8 @@ class RecipeFoodsController < ApplicationController
   def recipe_food_params
     params.require(:recipe_food).permit(:food_id, :quantity)
   end
-  
+
   def index
     @recipe_foods = RecipeFood.all
   end
-  
-
 end

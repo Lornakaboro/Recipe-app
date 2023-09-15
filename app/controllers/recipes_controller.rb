@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class RecipesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_recipe, only: %i[show edit update destroy]
@@ -65,6 +63,7 @@ class RecipesController < ApplicationController
     @recipe.toggle!(:public)
     redirect_to recipe_path(@recipe), notice: 'Recipe was successfully updated.'
   end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
