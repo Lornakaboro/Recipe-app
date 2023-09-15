@@ -3,7 +3,7 @@ nav {
     height: 50px; /* Set the background color of the navigation bar */
     align-items: center;
     justify-content: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
   }
   
   ul {
@@ -28,4 +28,21 @@ nav {
   .list-item a:hover {
     text-decoration: underline; /* Add underline on hover */
   }
+
+.image {
+  width: 100%; /* Set the desired width */
+  height: 100%; /* This maintains the aspect ratio */
+  border: 2px solid #ccc; /* Add a border around the image */
+}
+
+/* app/assets/stylesheets/styles.css */
+
+footer {
+  background-color: #0c0b0b;
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+}
+
+
   
