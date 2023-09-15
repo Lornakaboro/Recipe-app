@@ -14,6 +14,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_220821) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "food_recipes", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "food_id", null: false
+    t.decimal "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id"], name: "index_food_recipes_on_food_id"
+    t.index ["recipe_id"], name: "index_food_recipes_on_recipe_id"
+  end
+
   create_table "foods", force: :cascade do |t|
     t.string "food"
     t.string "measurement_unit"
@@ -21,11 +31,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_220821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-  end
-
-  create_table "public_recipes", force: :cascade do |t|
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.boolean "public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "preparation_time"
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_220821) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "food_recipes", "foods"
+  add_foreign_key "food_recipes", "recipes"
+  add_foreign_key "recipes", "users"
 end
