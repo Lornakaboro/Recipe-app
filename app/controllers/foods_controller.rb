@@ -3,8 +3,8 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.all
-  end
+    @foods = Food.includes(:user).all
+  end  
 
   # GET /foods/1 or /foods/1.json
   def show; end
