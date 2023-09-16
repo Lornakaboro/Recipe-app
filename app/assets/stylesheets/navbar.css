@@ -34,12 +34,9 @@ ul {
   border: 2px solid #ccc; /* Add a border around the image */
 }
 
-/* app/assets/stylesheets/styles.css */
-
 footer {
   background-color: #0c0b0b;
   text-align: center;
   padding: 10px;
   color: #fff;
 }
-
