@@ -4,9 +4,9 @@ class Ability
   def initialize(user)
     return unless user.present?
 
-    can :manage, Food, users_id: user
-    can :read, PublicRecipe # Allow users to read PublicRecipe resources
-
-    # Additional abilities can be defined here for other resources as needed.
+    can :manage, Recipe, user_id: user.id
+    can :destroy, Recipe
+    can :read, Recipe, public: true
+    can :read, PublicRecipe
   end
 end
