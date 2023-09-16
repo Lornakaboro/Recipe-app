@@ -7,6 +7,6 @@ class Ability
     can :manage, Recipe, user_id: user.id
     can :destroy, Recipe
     can :read, Recipe, public: true
-    can :read, PublicRecipe
+    can :read, PublicRecipe, public: true
   end
 end
