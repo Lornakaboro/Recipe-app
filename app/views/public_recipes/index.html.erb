@@ -1,29 +1,27 @@
-
-<div>
-  <h1>Public Recipes</h1>
+<div style="">
+  <h1 style="font-weight: bold; text-align: center; ">Public Recipes</h1>
 
   <div id="recipes">
     <% if @recipes.empty? %>
-      <p class="">No recipes available! </p>
+      <p class="" style="font-weight: bold; margin: 10px;">No recipes available! </p>
     <% else %>
       <% @recipes.each do |recipe| %>
-        <div class="a">
+        <div class="a" style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
           <div class="one">
-            <p><%= recipe.name %></p>
+            <h2 style="font-weight: bold;"><%= recipe.name %></h2>
             <% if can? :delete, recipe %>
-              <%= button_to "Destroy this recipe", recipe, method: :delete %>
+              <%= button_to "Destroy this recipe", recipe, method: :delete, style: "font-weight: bold;" %>
             <% end %>
             <p>
-            <%= link_to "Show", recipe %>
-          </p>
-            </div>
+              <%= link_to "Show", recipe, class: "btn btn-primary", style: "font-weight: bold; text-decoration: none; margin-right: 10px;" %>
+            </p>
+          </div>
             
           <div>
             <p><%= recipe.description %></p>
           </div>
-          
-    </div>
+        </div>
       <% end %>
-  <% end %>
+    <% end %>
   </div>
 </div>
