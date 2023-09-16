@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
+gem 'factory_bot_rails'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.8'
 
@@ -56,6 +58,8 @@ gem 'devise'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+
+  gem 'rspec-rails', '~> 5.0'
 
   gem 'pg'
 end
