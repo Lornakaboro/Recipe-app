@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_recipe, only: %i[show edit update destroy]
+  load_and_authorize_resource
 
   # GET /recipes or /recipes.json
   def index
@@ -48,6 +49,7 @@ class RecipesController < ApplicationController
     end
   end
 
+  # DELETE /recipes/1 or /recipes/1.json
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
     @recipe.destroy

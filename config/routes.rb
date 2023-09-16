@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'recipe_foods/destroy'
   resources :foods
   resources :recipes
-  resources :public_recipes
+  resources :public_recipes, only: [:index]
   resources :food_recipes
   devise_for :users
   resources :users, only: [:index, :show]
