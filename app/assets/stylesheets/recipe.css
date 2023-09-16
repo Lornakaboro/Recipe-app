@@ -18,3 +18,69 @@
   border-radius: 6px;
   padding: 5px;
 } 
+
+/* Style for the recipe-details section */
+.recipe-details {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.recipe-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.recipe-details p {
+  font-size: 16px;
+}
+
+/* Style for the button_action section */
+.button_action {
+  margin-top: 20px;
+}
+
+.button_action a.button,
+.button_action input[type="submit"].button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.button_action a.button:hover,
+.button_action input[type="submit"].button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for the grid-container2 and grid-item2 */
+.grid-container2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.grid-item2 {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.even-row {
+  background-color: #f2f2f2;
+}
+
+.odd-row {
+  background-color: #fff;
+}
+
+.last {
+  text-align: right;
+}
