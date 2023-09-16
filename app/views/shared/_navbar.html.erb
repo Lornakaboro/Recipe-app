@@ -1,0 +1,13 @@
+
+<%= stylesheet_link_tag 'navbar', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<nav>
+  <ul>
+    <li class="list-item"><%= link_to "Home", root_path %></li>
+    <li class="list-item"><%= link_to "Foods", foods_path %></li>
+    <li class="list-item"><%= link_to "Recipes", recipes_path %></li>
+    <li class="list-item"><%= link_to "Shopping List", food_recipes_path %></li>
+    <li class="list-item"><%= link_to "Public Recipes", public_recipes_path %></li>
+    
+  </ul>
+</nav>

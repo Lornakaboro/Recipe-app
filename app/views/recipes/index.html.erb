@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag 'recipe', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div>
+  <h1 class="recipe-title">Recipes</h1>
+
+  <div class="recipes">
+    <% if @recipes.empty? %>
+      <p class="">No recipes available! </p>
+    <% else %>
+      <% @recipes.each do |recipe| %>
+        <div class="recipe-item">
+          <div class="recipe-header">
+            <div>
+                <div class="recipe-info" style="display:flex; gap:70%; align-items:center">
+                  <p><%= recipe.name %></p>
+                  <p><%= recipe.description %></p>
+                </div>
+                <div style="display:flex; gap:70%; align-items:center">
+                  <% if can? :delete, recipe %>
+                    <%= button_to "Destroy this recipe", recipe, method: :delete %>
+                  <% end %>
+              </div> <p>
+              <%= link_to "View Recipe", recipe, class: "view-recipe-button" %>
+             </p>
+            </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to "Add Recipe", new_recipe_path %>
+</div>

@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<section class="shopping_list" style="padding:20px; border: 1px solid #ccc;">
+  <h1 class="shopping_list_text" style="text-align: center;">Shopping List</h1>
+  <div class="things_to_buy">
+    <p>Amount of Food Items to buy: <%= @food_count %></p>
+    <p>Total Value of Food Needed: $<%= @food_cost %></p>
+  </div>
+  <table class="grid-container3" style="margin-top: 20px; width: 100%;">
+    <tr style="font-weight: bold;">
+      <td>Food</td>
+      <td>Unit Price</td>
+      <td>Quantity</td>
+    </tr>
+    <% if @foods.empty? %>
+    <% else %>
+      <% @foods.each_with_index do |food, index| %>
+        <% row_class = index.even? ? 'even-row' : 'odd-row' %>
+        <tr class="<%= row_class %>">
+          <td><%= food.name %></td>
+          <td>$<%= food.price %></td>
+          <td><%= food.quantity %><%= food.measurement_unit %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</section>

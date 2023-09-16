@@ -1,0 +1,50 @@
+
+<%= stylesheet_link_tag 'recipe', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+<div class="container" style="background-color: #f0f0f0; padding: 20px; border: 1px solid #ccc; display: flex; flex-direction:column;">
+    <div class="recipe-details">
+      <h2 style="font-weight: bold; text-align: center;"><%= @recipe.name %></h2>
+      <div class="">
+        <p style="font-weight: bold;">Preparation time: <%= @recipe.preparation_time %> hours</p>
+        <p style="font-weight: bold;"><%= @recipe.description %></p>
+      </div>
+    </div>
+
+    <div class="second_table_recipes" style="display: flex; gap: 70%; align-items: center; margin-top: 10px;">
+      <div class="button_action">
+        <%= link_to "Generate Shopping List", food_recipes_path, class: 'button', style: 'font-weight: bold; text-decoration: none;' %>
+      </div>
+      <div class="button_action">
+        <%= button_to "Add Ingredient", new_food_recipe_path, method: :get, class: "button", style: 'font-weight: bold;' %>
+      </div>
+    </div>
+
+    <table class="grid-container2" style="margin-top: 20px;">
+      <tr style="font-weight: bold;">
+        <td>Food</td>
+        <td>Unit Price</td>
+        <td>Quantity</td>
+        <td>Actions</td>
+      </tr>
+      <% if @foods.empty? %>
+      <% else %>
+      <% @foods.each_with_index do |food, index| %>
+      <% row_class = index.even? ? 'even-row' : 'odd-row' %>
+      <tr class="<%= row_class %>">
+        <td><%= food.name %></td>
+        <td>$<%= food.price %></td>
+        <td><%= food.quantity %><%= food.measurement_unit %></td>
+        <td>
+          <%= button_to "Edit", edit_food_path(food.id), method: :get, class: 'edit_btn', style: 'font-weight: bold;' %> |
+          <%= button_to "Delete", food_path(food.id), method: :delete, class: 'delete_btn', style: 'font-weight: bold;' %>
+        </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </table>
+
+    <div class="button_action" style="text-align: center; margin-top: 20px;">
+      <%= link_to "Back to recipes", recipes_path, style: 'font-weight: bold; text-decoration: none;' %>
+    </div>
+</div>

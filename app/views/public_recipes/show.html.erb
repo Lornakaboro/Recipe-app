@@ -1,0 +1,14 @@
+
+<div>
+  <div>
+    <%= link_to recipes_path(@recipe.id) do %>
+      <h3><%= @recipe.name %></h3>
+    <% end %>
+    <p>By: <%= @recipe.user.name %></p>
+  </div>
+
+  <div>
+    <p>Total food items: <%= @recipe.foods.count %></p>
+    <p>Total price: <%= calculate_total_price(@recipe.foods) %></p>
+  </div>
+</div>
