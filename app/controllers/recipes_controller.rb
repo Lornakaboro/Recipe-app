@@ -50,15 +50,15 @@ class RecipesController < ApplicationController
   end
 
   # DELETE /recipes/1 or /recipes/1.json
- # DELETE /recipes/1 or /recipes/1.json
-def destroy
-  @recipe.destroy
+  # DELETE /recipes/1 or /recipes/1.json
+  def destroy
+    @recipe.destroy
 
-  respond_to do |format|
-    format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
-    format.json { head :no_content }
+    respond_to do |format|
+      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
-end
 
   # PATCH /recipes/1/toggle or /recipes/1/toggle.json
   def toggle
