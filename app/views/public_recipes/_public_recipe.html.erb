@@ -1,10 +1,9 @@
-<div>
-  <div>
-    <%= link_to recipe_path(recipe.id) do %>
-      <h3><%= recipe.name %></h3>
-    <% end %>
-    <p>By: <%= recipe.user.name %></p>
-  </div>
+
+<div id="<%= dom_id public_recipe %>">
+  <p>
+    <strong>Index:</strong>
+    <%= public_recipe.index %>
+  </p>
 
   <div>
     <p>Total food items: <%= %></p>
