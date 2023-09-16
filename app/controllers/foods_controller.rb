@@ -18,8 +18,11 @@ class FoodsController < ApplicationController
   def edit; end
 
   # POST /foods or /foods.json
+  # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)
+    puts food_params
+    @food.user = current_user
 
     respond_to do |format|
       if @food.save
