@@ -78,3 +78,8 @@
 .last {
   text-align: right;
 }
+
+.recipe-info {
+  display: flex;
+}
+
